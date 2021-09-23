@@ -1,10 +1,8 @@
 const mongoose = require("mongoose");
-
+const dotenv = require("dotenv");
+dotenv.config();
 mongoose
-  .connect(
-    "mongodb+srv://Harry:HarryAtlas%400105@portfoliocluster.9runo.mongodb.net/portfolio?retryWrites=true&w=majority",
-    { useNewUrlParser: true }
-  )
+  .connect(process.env.mongoDbUrl, { useNewUrlParser: true })
   .catch((e) => {
     console.error("Connection error", e.message);
   });

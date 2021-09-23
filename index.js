@@ -1,3 +1,7 @@
+const dotenv = require("dotenv");
+dotenv.config();
+console.log(`Your port is ${process.env.PORT}`);
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -9,7 +13,7 @@ const skillRouter = require("./routes/skill_router");
 const userRouter = require("./routes/user_router");
 const projectRouter = require("./routes/project_router");
 const app = express();
-const apiPort = 3000;
+const apiPort = process.env.PORT;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
